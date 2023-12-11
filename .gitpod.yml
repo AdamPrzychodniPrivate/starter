@@ -28,3 +28,12 @@ image: gitpod/workspace-python-3.10:latest
 #       - monokai-pro  
 #     prebuilds:
 #       version: stable  # Use the stable version for prebuilds
+
+# virtualenv venv
+# source venv/bin/activate
+# pip install --upgrade pip
+# pip install 'kedro<0.19.0,>=0.18.1' kedro-kubeflow kedro-docker
+# kedro new --starter=spaceflights --checkout=0.17.7
+# cd pipeline
+# echo kedro-kubeflow >> src/requirements*
+# 
