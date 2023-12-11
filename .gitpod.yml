@@ -33,7 +33,8 @@ image: gitpod/workspace-python-3.10:latest
 # source venv/bin/activate
 # pip install --upgrade pip
 # pip install 'kedro<0.19.0,>=0.18.1' kedro-kubeflow kedro-docker
-# kedro new --starter=spaceflights --checkout=0.17.7
+# kedro new --starter=spaceflights
 # cd pipeline
 # echo kedro-kubeflow >> src/requirements*
-# 
+# kedro docker init
+# docker tag pipeline:latest remote.repo.url.com/pipeline:latest
