@@ -1,25 +1,19 @@
 # Using this image because kedro works currently with python 3.11
 image: gitpod/workspace-python-3.10:latest
 
-# tasks:
-#   - name: Setup .venv, install dependencies and build docker image for kedro pipeline
-#     before: 
-#       sudo apt-get update
-#     # Change directory to the project folder
-#     # Create venv
-#     # Activate venv
-#     # Install dependencies 
-#     # Also additionally I need to install pyarrow fastparquet openpyxl in .venv, on Docker it works without them but outside I need install them, weird :)
-#     # Build the Docker image for the project using kedro-docker plugin
-#     command: |
-#       sudo apt-get install tree
-#       cd project
-#       python3 -m venv venv
-#       source venv/bin/activate
-#       pip install --upgrade pip
-#       pip install -r src/requirements.txt
-#       pip install pyarrow fastparquet openpyxl
-#       kedro docker build
+tasks:
+  - name: Setup .venv, install dependencies and build docker image for kedro pipeline
+    before: 
+      sudo apt-get update
+    command: |
+      sudo apt-get install tree
+      virtualenv venv
+      source venv/bin/activate
+      pip install --upgrade pip
+      pip install kedro 
+      cd pipeline/
+      kedro docker init
+      kedro docker build
 
 # jetbrains:
 #   pycharm:
@@ -32,9 +26,18 @@ image: gitpod/workspace-python-3.10:latest
 # virtualenv venv
 # source venv/bin/activate
 # pip install --upgrade pip
+# pip install kedro 
+# cd pipeline/
+# pip install -r requirements.txt
+# kedro docker init
+# kedro docker build
+
 # pip install 'kedro<0.19.0,>=0.18.1' kedro-kubeflow kedro-docker
 # kedro new --starter=spaceflights
 # cd pipeline
 # echo kedro-kubeflow >> src/requirements*
 # kedro docker init
 # docker tag pipeline:latest remote.repo.url.com/pipeline:latest
+
+# pip uninstall s3fs
+# 
