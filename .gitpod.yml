@@ -10,13 +10,14 @@ tasks:
       virtualenv venv
       source venv/bin/activate
       pip install --upgrade pip
-      pip install kedro 
-      cd pipeline/
-      pip install -r requirements.txt
-      pip install kedro-docker
-      pip install kedro-kubeflow
-      kedro docker init
-      kedro docker build
+      pip install kedro
+
+# cd pipeline/
+# pip install -r requirements.txt
+# pip install kedro-docker
+# pip install kedro-kubeflow
+# kedro docker init
+# kedro docker build
 
 # jetbrains:
 #   pycharm:
