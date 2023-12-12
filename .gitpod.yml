@@ -1,5 +1,5 @@
 # Using this image because kedro works currently with python 3.11
-image: gitpod/workspace-python-3.10:latest
+image: gitpod/workspace-python-3.11:latest
 
 tasks:
   - name: Setup .venv, install dependencies and build docker image for kedro pipeline
