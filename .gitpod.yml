@@ -12,6 +12,7 @@ tasks:
       pip install --upgrade pip
       pip install kedro 
       cd pipeline/
+      pip install -r requirements.txt
       kedro docker init
       kedro docker build
 
