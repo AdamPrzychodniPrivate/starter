@@ -13,34 +13,10 @@ tasks:
       pip install kedro
       cd pipeline/
       pip install -r requirements.txt
-      pip install kedro-docker
       pip install pyarrow fastparquet openpyxl
-      kedro docker init
-      kedro docker build
-
-# jetbrains:
-#   pycharm:
-#     plugins:
-#       - com.markskelton.one-dark-theme  
-#       - monokai-pro  
-#     prebuilds:
-#       version: stable  # Use the stable version for prebuilds
-
-# virtualenv venv
-# source venv/bin/activate
-# pip install --upgrade pip
-# pip install kedro 
-# cd pipeline/
-# pip install -r requirements.txt
-# kedro docker init
-# kedro docker build
-
-# pip install 'kedro<0.19.0,>=0.18.1' kedro-kubeflow kedro-docker
-# kedro new --starter=spaceflights
-# cd pipeline
-# echo kedro-kubeflow >> src/requirements*
-# kedro docker init
-# docker tag pipeline:latest remote.repo.url.com/pipeline:latest
+      jupyter lab --ServerApp.allow_remote_access=True --ServerApp.allow_origin='*' --ServerApp.ip='0.0.0.0' --port=8888 --ServerApp.token='' --ServerApp.disable_check_xsrf=True
 
 # pip uninstall s3fs
-# 
+
+ports:
+  - port: 8888  # Default Jupyter Notebook port
