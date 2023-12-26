@@ -1,23 +1,59 @@
+# # Using this image because kedro works currently with python 3.11
+# image: gitpod/workspace-python-3.11:latest
+
+# tasks:
+#   - name: Setup kedro pipeline template, .venv and install dependencies
+#     before: 
+#       sudo apt-get update
+#     command: |
+#       sudo apt-get install tree
+#       virtualenv venv
+#       source venv/bin/activate
+#       pip install --upgrade pip
+#       pip install kedro
+#       kedro new --starter=spaceflights-pandas-viz --name=pipeline
+#       cd pipeline/
+#       pip install -r requirements.txt
+#       pip install pyarrow fastparquet openpyxl
+#       cd notebooks/
+#       git clone https://github.com/AdamPrzychodniPrivate/notebook-templates.git
+#       cd ..
+
+# ports:
+#  - port: 8888  # Default Jupyter Notebook port
+
 # Using this image because kedro works currently with python 3.11
 image: gitpod/workspace-python-3.11:latest
 
 tasks:
-  - name: Setup kedro pipeline template, .venv and install dependencies
-    before: 
-      sudo apt-get update
+  - name: Initial setup
+    init: |
+      # Commands to run only on the first start
+      if [ ! -d "pipeline" ]; then
+        echo "Running first-time setup commands"
+
+        sudo apt-get update
+        sudo apt-get install tree
+        virtualenv venv
+        source venv/bin/activate
+        pip install --upgrade pip
+        pip install kedro
+        kedro new --starter=spaceflights-pandas-viz --name=pipeline
+        cd pipeline/
+        pip install -r requirements.txt
+        pip install pyarrow fastparquet openpyxl
+        cd notebooks/
+        git clone https://github.com/AdamPrzychodniPrivate/notebook-templates.git
+        cd ..
+
+      fi
     command: |
-      sudo apt-get install tree
-      virtualenv venv
+      # Commands to run every time the workspace starts
+      echo "Running regular startup commands"
+      # Put your regular startup commands here
+
       source venv/bin/activate
-      pip install --upgrade pip
-      pip install kedro
-      kedro new --starter=spaceflights-pandas-viz --name=pipeline
       cd pipeline/
-      pip install -r requirements.txt
-      pip install pyarrow fastparquet openpyxl
-      cd notebooks/
-      git clone https://github.com/AdamPrzychodniPrivate/notebook-templates.git
-      cd ..
 
 ports:
  - port: 8888  # Default Jupyter Notebook port
