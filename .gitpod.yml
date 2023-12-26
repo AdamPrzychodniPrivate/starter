@@ -11,6 +11,7 @@ tasks:
       source venv/bin/activate
       pip install --upgrade pip
       pip install kedro
+      kedro new --starter=spaceflights-pandas-viz --name=pipeline
       cd pipeline/
       pip install -r requirements.txt
       pip install pyarrow fastparquet openpyxl
