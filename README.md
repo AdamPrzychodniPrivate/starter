@@ -5,7 +5,7 @@ Create your new repo run it on gitpod.
 Copy .gitpod.yml file from this repo :) 
 
 ```
-curl -s https://api.github.com/repos/AdamPrzychodniPrivate/starter/contents/.gitpod.yml | jq -r '.content' | base64 --decode > .gitpod.yml
+curl -s https://raw.githubusercontent.com/AdamPrzychodniPrivate/starter/main/.gitpod.yml > .gitpod.yml
 ```
 
 commit and sync 
