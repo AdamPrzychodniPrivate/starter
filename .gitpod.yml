@@ -16,7 +16,7 @@ tasks:
       pip install -r requirements.txt
       pip install pyarrow fastparquet openpyxl
 
-# jupyter lab --ServerApp.allow_remote_access=True --ServerApp.allow_origin='*' --ServerApp.ip='0.0.0.0' --port=8888 --ServerApp.token='' --ServerApp.disable_check_xsrf=True
+# kedro jupyter lab --ServerApp.allow_remote_access=True --ServerApp.allow_origin='*' --ServerApp.ip='0.0.0.0' --port=8888 --ServerApp.token='' --ServerApp.disable_check_xsrf=True
 
 ports:
  - port: 8888  # Default Jupyter Notebook port
