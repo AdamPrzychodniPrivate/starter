@@ -15,7 +15,9 @@ tasks:
       cd pipeline/
       pip install -r requirements.txt
       pip install pyarrow fastparquet openpyxl
-      git clone https://github.com/AdamPrzychodniPrivate/notebook-templates.git notebooks/
+      cd notebooks/
+      git clone https://github.com/AdamPrzychodniPrivate/notebook-templates.git
+      cd ..
 
 ports:
  - port: 8888  # Default Jupyter Notebook port
